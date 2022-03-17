@@ -1,0 +1,473 @@
+{
+    "0": {
+        "name": "C",
+        "email": [
+            "345@gmail.com",[24,37]
+        ],
+        "phone": [
+            "123-123-1234",
+            [
+                54,
+                66
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "India",
+        "skills": [
+            "Prototype",
+            "Babel",
+            "Js",
+            "Cloud",
+            "Mysql",
+            "Sql server",
+            "Apis",
+            "Sdlc",
+            "Xml",
+            "Javascript",
+            "Fulfillment",
+            "Postgresql",
+            "Json",
+            "Scrum",
+            "Flask",
+            "Selenium",
+            "Prototyping",
+            "Windows",
+            "Reports",
+            "Oracle",
+            "Test cases",
+            "Banking",
+            "Testing",
+            "Workflows",
+            "Process",
+            "Sqlalchemy",
+            "System",
+            "Software development life cycle",
+            "Analysis",
+            "Pl/sql",
+            "Transactions",
+            "Design",
+            "Java",
+            "Html",
+            "Jira",
+            "Docker",
+            "C",
+            "Html5",
+            "C++",
+            "Jsp",
+            "Css",
+            "Servers",
+            "Github",
+            "Python",
+            "Database",
+            "Rest",
+            "Sql",
+            "Automation",
+            "Soap",
+            "Web services",
+            "Mortgage",
+            "Ui",
+            "Aws"
+        ]
+    },
+    "1": {
+        "name": "L",
+        "email": [
+            "12345@gmail.com",
+            [
+                24,
+                39
+            ]
+        ],
+        "phone": [
+            "987-675-1234",
+            [
+                75,
+                87
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "Ab Initio",
+        "skills": [
+            "Hadoop",
+            "Strategy",
+            "Scrum",
+            "Data analysis",
+            "Operating systems",
+            "Scheduling",
+            "Reports",
+            "Spark",
+            "Oracle",
+            "Banking",
+            "Retail",
+            "Agile",
+            "Small business",
+            "Access",
+            "Jira",
+            "Logging",
+            "Db2",
+            "Hive",
+            "Etl",
+            "Parser",
+            "Database",
+            "Correspondence",
+            "Scala",
+            "Broadcast"
+        ]
+    },
+    "2": {
+        "name": "O",
+        "email": [
+            "122344@gmail.com",
+            [
+                12,
+                28
+            ]
+        ],
+        "phone": [
+            "1234567",
+            [
+                54,
+                61
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "US",
+        "skills": [
+            "Life cycle",
+            "Dns",
+            "Compliance",
+            "Vmware",
+            "Regulatory requirements",
+            "Sdlc",
+            "Ios",
+            "Debugging",
+            "Reporting",
+            "Root cause",
+            "Analysis"
+        ]
+    },
+    "3": {
+        "name": "U",
+        "email": [
+            "abcd@gmail.com",
+            [
+                44,
+                58
+            ]
+        ],
+        "phone": [
+            "(123) 456-5616",
+            [
+                62,
+                76
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "DC",
+        "skills": [
+            "Cloud",
+            "Mysql",
+            "Sdlc",
+            "Javascript",
+            "Xml",
+            "Json",
+            "Selenium",
+            "Specifications",
+            "Spark",
+            "Documentation",
+            "Testing",
+            "System",
+            "Software development life cycle",
+            "Debugging",
+            "Design",
+            "Java",
+            "Html",
+            "Jira",
+            "Threading",
+            "Docker",
+            "Api",
+            "Html5",
+            "Logging",
+            "Jsp",
+            "Css",
+            "Database",
+            "Rest",
+            "Sql",
+            "Architecture",
+            "Soap",
+            "Web services",
+            "Ui",
+            "Aws"
+        ]
+    },
+    "4": {
+        "name": "D",
+        "email": [
+            "123451@gmail.com",
+            [
+                93,
+                109
+            ]
+        ],
+        "phone": [
+            "1234567890",
+            [
+                59,
+                69
+            ]
+        ],
+        "dob": [
+            "03-10-1995",
+            [
+                5251,
+                5261
+            ]
+        ],
+        "location": "Bangalore",
+        "skills": [
+            "Design",
+            "Information technology",
+            "Documentation",
+            "Css",
+            "Html",
+            "Customer requirements",
+            "Compliance",
+            "Email",
+            "Change management",
+            "Javascript",
+            "Xml",
+            "Excel",
+            "Web services",
+            "Asset management",
+            "Cms"
+        ]
+    },
+    "5": {
+        "name": " ",
+        "email": [
+            "122690@gmail.com",
+            [
+                94,
+                110
+            ]
+        ],
+        "phone": [
+            "123-466-7890",
+            [
+                116,
+                128
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "India",
+        "skills": [
+            "Writing",
+            "Cloud",
+            "Troubleshooting",
+            "Sql server",
+            "Scripting",
+            "Nosql",
+            "Administration",
+            "Selenium",
+            "Windows",
+            "Reports",
+            "Operations",
+            "Oracle",
+            "Ibm",
+            "Os",
+            "Migration",
+            "Hardware",
+            "Installation",
+            "Technical skills",
+            "Testing",
+            "Communication",
+            "Visio",
+            "Ansible",
+            "Shell",
+            "Linux",
+            "Updates",
+            "Design",
+            "Jira",
+            "Vmware",
+            "Docker",
+            "Routing",
+            "Db2",
+            "Servers",
+            "Analytics",
+            "Perl",
+            "Github",
+            "Python",
+            "Dns",
+            "Security",
+            "Continuous improvement",
+            "System administration",
+            "Solaris",
+            "Redhat",
+            "Dhcp",
+            "Automation",
+            "Sql",
+            "Content",
+            "Ubuntu",
+            "Aws"
+        ]
+    },
+    "6": {
+        "name": "A",
+        "email": [
+            "xxxxxi@gmail.com",
+            [
+                28,
+                44
+            ]
+        ],
+        "phone": [
+            "123-456-7890",
+            [
+                15,
+                27
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "INDIA",
+        "skills": [
+            "Controls",
+            "Mysql",
+            "Sql server",
+            "Sdlc",
+            "Xml",
+            "Javascript",
+            "Information system",
+            "Coding",
+            "Computer applications",
+            "Json",
+            "Reports",
+            "Aws",
+            "C#",
+            ".net",
+            "Programming",
+            "Technical skills",
+            "Website",
+            "Testing",
+            "Analysis",
+            "User stories",
+            "Access",
+            "Design",
+            "Html",
+            "Engineering",
+            "Swift",
+            "Html5",
+            "Ios",
+            "Analytical skills",
+            "Css",
+            "Computer science",
+            "Security",
+            "Auditing",
+            "Database",
+            "Soap",
+            "Web services",
+            "Reporting",
+            "Asp",
+            "Rest",
+            "Tfs"
+        ]
+    },
+    "7": {
+        "name": "R",
+        "email": [
+            "xyz@gmail.com",
+            [
+                46,
+                59
+            ]
+        ],
+        "phone": [
+            "123-456-7890",
+            [
+                25,
+                37
+            ]
+        ],
+        "dob": [
+            "",
+            [
+                null,
+                null
+            ]
+        ],
+        "location": "India",
+        "skills": [
+            "Photoshop",
+            "Js",
+            "Mysql",
+            "Sql server",
+            "Sdlc",
+            "Javascript",
+            "Xml",
+            "Json",
+            "Nosql",
+            "Scrum",
+            "Aws",
+            "Operations",
+            "Test cases",
+            "Technical skills",
+            "Workflows",
+            "Agile",
+            "Analysis",
+            "Design",
+            "Java",
+            "Presentation",
+            "Html",
+            "Jira",
+            "Engineering",
+            "Html5",
+            "Routing",
+            "Css",
+            "Python",
+            "Computer science",
+            "Database",
+            "Rest",
+            "Php",
+            "Content",
+            "Web services",
+            "Soap",
+            "Ui",
+            "Tfs"
+        ]
+    }
+}
