@@ -11,4 +11,4 @@ for file in file_list:
         'data/outputs/' + '_'.join(
             file_list[0].split('/')[-1].split('.')[0].split(' ')) + '_' + file_list[0].split('/')[-1].split('.')[1] + '.json', "w"
     ) as outfile:
-        json.dump(ResumeParser.parse(file).output('en'), outfile)
+        json.dump(ResumeParser.parse(file).output('en'), outfile, indent = 4)
