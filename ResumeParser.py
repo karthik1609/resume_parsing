@@ -79,7 +79,24 @@ class parse:
             return [skill for skill in skills_edu if not any([exclusion.lower().strip() in skill.lower().strip() for exclusion in edu_company])]
         else:
             return 'Error: No exclusion list available'
-        
+
+    #def extract_resume_numbering(self):
+        # file_list = glob.glob(os.path.join(os.getcwd(), "/home/anudeepadi/Documents/Fw__Sample_resumes_", "*.docx"))
+        # resumes = [textract.process(file_path).decode() for file_path in file_list]
+        # remove /n and /r from the resumes
+        # resumes = [re.sub(r'[\n\r]', '', resume) for resume in resumes]
+        # for every /t in resumes[1] split the string and store it in a list
+        # others = [[item] for item in resumes[1].split('\t') if (item != ' ' or item != '')]
+        # for item in others:
+        #     for j in item:
+        #         if j == ' ' or j == '':
+        #             item.remove(j)
+        # # remove empty lists from the list
+        # others = [x for x in others if x != []]
+        # trythis = enumerate(others)
+        # return list(trythis)      # remove /n and /r from the resumes
+
+ 
     def output(self, *args):
         return {
             'name': self.extract_name(),
