@@ -43,6 +43,27 @@
     "DoB": [],
     "location": [
         [
+            "Vikas Nagar Colony",
+            [
+                54,
+                72
+            ]
+        ],
+        [
+            "Saroornagar",
+            [
+                74,
+                85
+            ]
+        ],
+        [
+            "Hyderabad",
+            [
+                87,
+                96
+            ]
+        ],
+        [
             "INDIA",
             [
                 107,
@@ -106,6 +127,13 @@
             ]
         ],
         [
+            "VITS",
+            [
+                3859,
+                3863
+            ]
+        ],
+        [
             "Hyderabad",
             [
                 3866,
@@ -121,26 +149,25 @@
         ]
     ],
     "skills": [
-        "Engineering Design",
-        "Conceptualization, Design\nThinking",
-        " Product Management & Tech Ethics",
-        "the Business and Operations",
-        "Business Analyst",
-        "Project Management\nAgile-Scrum & Waterfall",
-        "Mechanical Engineering",
-        "Stakeholder Management",
+        "IBM Enterprise Design Thinking Practitioner",
+        "Sprint",
+        "Conceptualization",
+        "Micro Mobility",
+        "Agile",
+        "Scrum Alliance)",
+        "Project",
+        "UAT",
+        "Business",
         "Operations and Marketing",
+        "Senior BA",
+        "the Business and Operations",
         "Scrum-centric",
         "Directors / Managers",
-        "PMBOK) &",
         "SDLC",
-        "Micro Mobility",
-        "Scrum Alliance",
-        "Project",
-        "Project Management and Team Collaboration for Projects",
-        "Agile",
-        "Delivery & Release Planning",
-        "Development Life Cycle Management",
-        "INDIA  9949171669  9985525299"
+        "Business Architect",
+        "Project Management and Team Collaboration for Projects and\nProducts",
+        "QA",
+        "BA",
+        "Project Managers"
     ]
 }

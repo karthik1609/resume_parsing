@@ -17,9 +17,9 @@ class parse:
         self.nlp_name_loc = spacy.load('en_core_web_trf')
         self.nlp_skills = spacy.load('en_core_web_md')
         self.nlp_edu = spacy.load('en_core_web_sm')
-        self.doc_nmlc = self.nlp_name_loc(self.resume)
-        self.doc_skills = self.nlp_skills(self.resume)
-        self.doc_edu = self.nlp_edu(self.resume)
+        #self.doc_nmlc = self.nlp_name_loc(self.resume)
+        #self.doc_skills = self.nlp_skills(self.resume)
+        #self.doc_edu = self.nlp_edu(self.resume)
         self.nlp_stanza = spacy_stanza.load_pipeline('en')
     
     def extract_phone_number(self):
@@ -40,7 +40,7 @@ class parse:
         elif len(args) and args[0] == 'en':
             doc_nmlc_ = spacy_stanza.load_pipeline("en")(self.resume)
         else:
-            doc_nmlc_ = self.doc_nmlc
+            doc_nmlc_ = self.nlp_name_loc(self.resume)
         return [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ == 'PERSON']
     
     def extract_location(self, *args):
@@ -49,7 +49,7 @@ class parse:
         elif len(args) and args[0] == 'en':
             doc_nmlc_ = spacy_stanza.load_pipeline("en")(self.resume)
         else:
-            doc_nmlc_ = self.doc_nmlc
+            doc_nmlc_ = self.nlp_name_loc(self.resume)
         return [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ in ['GPE', 'LOC']]
     
     def extract_skills_and_edu(self, *args):
@@ -58,7 +58,7 @@ class parse:
         elif len(args) and args[0] == 'en':
             doc_skills_ = spacy_stanza.load_pipeline("en")(self.resume)
         else:
-            doc_skills_ = self.doc_skills
+            doc_skills_ = self.nlp_skills(self.resume)
         skills_edu = [ent.text.encode("ascii", "ignore").decode() for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
         #skills_edu = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
         tokens = [token.text.lower().encode("ascii", "ignore").decode() for token in doc_skills_ if not token.is_stop]
@@ -82,12 +82,12 @@ class parse:
         
     def output(self, *args):
         return {
-            'name': self.extract_name(),
+            'name': self.extract_name('en'),
             'phone number': self.extract_phone_number(),
             'e-mail': self.extract_email(),
             'DoB': self.extract_dob(),
-            'location': self.extract_location(),
-            'skills': self.extract_skills()
+            'location': self.extract_location('en'),
+            'skills': self.extract_skills('en')
         }
     
     
