@@ -1,4 +1,4 @@
-import ResumeParser
+from .. import ResumeParser
 import glob
 import os
 import json
