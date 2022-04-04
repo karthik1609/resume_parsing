@@ -6,6 +6,7 @@ import stanza
 import spacy_stanza
 import pickle
 from os.path import exists
+from src.TagPopulator import NerTrainSet
 
 stanza.download('en')
 
@@ -15,7 +16,7 @@ class parse:
         self.file_path = file_path
         self.resume = textract.process(self.file_path).decode()
         self.nlp_name_loc = spacy.load('en_core_web_trf')
-        self.nlp_skills = spacy.load('en_core_web_md')
+        self.nlp_skills = spacy.load('output/model-best')
         self.nlp_edu = spacy.load('en_core_web_sm')
         #self.doc_nmlc = self.nlp_name_loc(self.resume)
         #self.doc_skills = self.nlp_skills(self.resume)
@@ -60,6 +61,8 @@ class parse:
         else:
             doc_skills_ = self.nlp_skills(self.resume)
         skills_edu = [ent.text.encode("ascii", "ignore").decode() for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
+        nlp = spacy.load('trf_model/model-best')
+        skills_edu.extend([ent_.text for ent_ in nlp(NerTrainSet(self.file_path).resume2str()).ents])
         #skills_edu = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
         tokens = [token.text.lower().encode("ascii", "ignore").decode() for token in doc_skills_ if not token.is_stop]
         with open('data/exclusions_skills.pkl', "rb") as fp:
@@ -87,7 +90,7 @@ class parse:
             'e-mail': self.extract_email(),
             'DoB': self.extract_dob(),
             'location': self.extract_location('en'),
-            'skills': self.extract_skills('en')
+            'skills': self.extract_skills()
         }
     
     

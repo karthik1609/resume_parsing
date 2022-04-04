@@ -5,7 +5,6 @@ import os
 from spacy.matcher import Matcher
 from nltk.corpus import stopwords
 import glob
-import os
 import pandas as pd
 import os, glob, re
 from pprint import pprint
@@ -15,12 +14,8 @@ import pickle
 from fastai.text.all import * 
 
 
-
-#file_list = [file for file in sys.argv[1:] if file.split('.')[-1] in ['docx', 'pdf']]
-#file_list = glob.glob(os.path.join(os.getcwd(), "../Fw__Sample_resumes_/", "*.pdf"))
-#resumes = [ for file in file_list]
-
 class NerTrainSet:
+
 
     def __init__(self, resume_path):
         self.skill_corpus = [skill.lower() for skill in list(pd.read_csv('data/skills.csv').columns)]
@@ -38,6 +33,12 @@ class NerTrainSet:
             '/', '<fwslash>').replace(
             '*', '<star>'
         )
+        self.resume = self.resume + os.popen('pdf2txt.py ' + resume_path).read().encode("ascii", "ignore").decode().replace(
+            '+', '<plus>').replace(
+            '/', '<fwslash>').replace(
+            '*', '<star>'
+        )
+
     
     def resume2str(self):
         tok_string = ' '.join(
@@ -55,7 +56,7 @@ class NerTrainSet:
                                 '\t') if tabsp.strip()]).split(
                             ' ') if token])
                 )))
-
+        
         return ' '. join([tok for tok in tok_string.split(' ') if tok not in ['xxmaj', 'xxup']])
 
     def list_of_skills(self, *args):
