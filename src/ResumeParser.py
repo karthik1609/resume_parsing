@@ -97,21 +97,26 @@ class parse:
 class edit_data:
     
     
-    def add_skills(*ags):
-        if len(args) == 1 and type(args[0]) == 'str':
-            with open('data/skills.pkl', "rb") as fp:
-                skills = pickle.load(fp)
-            skills.append(args[0])
+    def __init__(self, *args):  
+        self.args = list(args)
+    
+    def add_skills(self):
+        with open('data/skills.pkl', "rb") as fp:
+            skills = pickle.load(fp)
+        if len(self.args) == 1 and str(type(self.args[0])) == "<class 'str'>":
+            skills.append(self.args[0])
+            skills = list(set(skills))
             with open('data/skills.pkl', "wb") as fp:
                 pickle.dump(skills, fp)
             return 'Success'
-        elif len(args) > 1 and all([type(arg) == 'str' for arg in args]):
-            skills.extend(args)
+        elif len(self.args) > 1 and all([str(type(arg)) == "<class 'str'>" for arg in self.args]):
+            skills.extend(self.args)
+            skills = list(set(skills))
             with open('data/skills.pkl', "wb") as fp:
                 pickle.dump(skills, fp)
             return 'Success'
         else:
-            return 'Please sent string or list of strings'
+            return 'Please send string or comma separated sequence of strings'
         
             
             
