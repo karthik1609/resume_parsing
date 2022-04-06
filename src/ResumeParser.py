@@ -21,7 +21,7 @@ class parse:
         #self.doc_nmlc = self.nlp_name_loc(self.resume)
         #self.doc_skills = self.nlp_skills(self.resume)
         #self.doc_edu = self.nlp_edu(self.resume)
-        self.nlp_stanza = spacy_stanza.load_pipeline('en')
+        self.nlp_stanza = spacy_stanza.load_pipeline('en',use_gpu=False)
     
     def extract_phone_number(self):
         items = re.finditer(r'\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}', self.resume)
@@ -39,7 +39,7 @@ class parse:
         if len(args) and args[0] in ['en_core_web_trf', 'en_core_web_md', 'en_core_web_sm', 'en_core_web_lg']:
             doc_nmlc_ = spacy.load(args[0])(self.resume)
         elif len(args) and args[0] == 'en':
-            doc_nmlc_ = spacy_stanza.load_pipeline("en")(self.resume)
+            doc_nmlc_ = spacy_stanza.load_pipeline("en",use_gpu=False)(self.resume)
         else:
             doc_nmlc_ = self.nlp_name_loc(self.resume)
         return [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ == 'PERSON']
@@ -48,7 +48,7 @@ class parse:
         if len(args) and args[0] in ['en_core_web_trf', 'en_core_web_md', 'en_core_web_sm', 'en_core_web_lg']:
             doc_nmlc_ = spacy.load(args[0])(self.resume)
         elif len(args) and args[0] == 'en':
-            doc_nmlc_ = spacy_stanza.load_pipeline("en")(self.resume)
+            doc_nmlc_ = spacy_stanza.load_pipeline("en",use_gpu=False)(self.resume)
         else:
             doc_nmlc_ = self.nlp_name_loc(self.resume)
         return [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ in ['GPE', 'LOC']]
@@ -57,7 +57,7 @@ class parse:
         if len(args) and args[0] in ['en_core_web_trf', 'en_core_web_md', 'en_core_web_sm', 'en_core_web_lg']:
             doc_skills_ = spacy.load(args[0])(self.resume)
         elif len(args) and args[0] == 'en':
-            doc_skills_ = spacy_stanza.load_pipeline("en")(self.resume)
+            doc_skills_ = spacy_stanza.load_pipeline("en",use_gpu=False)(self.resume)
         else:
             doc_skills_ = self.nlp_skills(self.resume)
         skills_edu = [ent.text.encode("ascii", "ignore").decode() for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
@@ -90,7 +90,7 @@ class parse:
             'e-mail': self.extract_email(),
             'DoB': self.extract_dob(),
             'location': self.extract_location('en'),
-            'skills': self.extract_skills()
+            'skills': self.extract_skills('en')
         }
     
     

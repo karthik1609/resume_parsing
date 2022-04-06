@@ -1,0 +1,157 @@
+{
+    "name": [
+        [
+            "Asim Kalla",
+            [
+                0,
+                10
+            ]
+        ]
+    ],
+    "phone number": [
+        [
+            "1234567",
+            [
+                54,
+                61
+            ]
+        ],
+        [
+            "997-1999",
+            [
+                3922,
+                3930
+            ]
+        ]
+    ],
+    "e-mail": [
+        [
+            "122344@gmail.com",
+            [
+                12,
+                28
+            ]
+        ]
+    ],
+    "DoB": [],
+    "location": [
+        [
+            "NY",
+            [
+                48,
+                50
+            ]
+        ],
+        [
+            "Chantilly",
+            [
+                1845,
+                1854
+            ]
+        ],
+        [
+            "VA",
+            [
+                1856,
+                1858
+            ]
+        ],
+        [
+            "Ashburn",
+            [
+                3012,
+                3019
+            ]
+        ],
+        [
+            "VA",
+            [
+                3021,
+                3023
+            ]
+        ],
+        [
+            "Woodside",
+            [
+                3417,
+                3425
+            ]
+        ],
+        [
+            "New York",
+            [
+                3427,
+                3435
+            ]
+        ],
+        [
+            "US",
+            [
+                4103,
+                4105
+            ]
+        ],
+        [
+            "US",
+            [
+                4144,
+                4146
+            ]
+        ]
+    ],
+    "skills": [
+        "Carbon Black",
+        "FireEye HX",
+        "NewAE Technology Inc",
+        "Cyber Incident",
+        "Network Operations Center",
+        "NGFW",
+        "Fortinet",
+        "TCP/IP",
+        "Mitre",
+        "Endpoint Detection and Response",
+        "IPS",
+        "Cyber Threat Management",
+        "Intrusion Detection/Intrusion Prevention Systems",
+        "Incident",
+        "DNS",
+        "Tcpdump",
+        "The Hive",
+        "SIEM",
+        "EC-Council",
+        "Security Information and Event Management",
+        "IAM",
+        "Packet Analysis",
+        "Wireshark",
+        "IDS",
+        "VMware",
+        "Cyber Threat Operations",
+        "Ransomware IOCs",
+        "CTOC",
+        "Threat Intelligence",
+        "ServiceNow",
+        "Windows, Unix/Linux",
+        "Cyber Threat Operations Center",
+        "CompTIA",
+        "CEH",
+        "SDLC",
+        "Enterprise Network Security",
+        "Splunk",
+        "IOS",
+        "Nmap",
+        "FTK",
+        "IBM Qradar",
+        "Links International",
+        "OSI Model",
+        "Splunk ES",
+        "CyberNow Labs",
+        "NOC",
+        "SolarWinds",
+        "Socradar.io",
+        "AES-256",
+        "ChipWhisperer",
+        "EnCase",
+        "System Development Life Cycle)",
+        "Information Security"
+    ]
+}
