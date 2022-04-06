@@ -60,7 +60,8 @@ class parse:
             doc_skills_ = spacy_stanza.load_pipeline("en",use_gpu=False)(self.resume)
         else:
             doc_skills_ = self.nlp_skills(self.resume)
-        skills_edu = [ent.text.encode("ascii", "ignore").decode() for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
+        skills_edu = []
+        #skills_edu.extend([ent.text.encode("ascii", "ignore").decode() for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']])
         #nlp = spacy.load('trf_model/model-best')
         #skills_edu.extend([ent_.text for ent_ in nlp(NerTrainSet(self.file_path).resume2str()).ents])
         #skills_edu = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
@@ -68,9 +69,10 @@ class parse:
         with open('data/exclusions_skills.pkl', "rb") as fp:
             skill_master_list = pickle.load(fp)
         skills = [skill.lower().strip().encode("ascii", "ignore").decode() for skill in skill_master_list]
-        skillset = [token.capitalize().encode("ascii", "ignore").decode() for token in tokens if token.lower().strip() in skills]
-        skillset.extend(
-            [token.text.capitalize().strip().encode("ascii", "ignore").decode() for token in doc_skills_.noun_chunks if token.text.lower().strip() in skills])
+        skillset = []
+        skillset.extend([token.capitalize().encode("ascii", "ignore").decode() for token in tokens if token.lower().strip() in skills])
+        #skillset.extend(
+        #    [token.text.capitalize().strip().encode("ascii", "ignore").decode() for token in doc_skills_.noun_chunks if token.text.lower().strip() in skills])
         skills_edu.extend(skillset)
         return list(set(skills_edu))
     
