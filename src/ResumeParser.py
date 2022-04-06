@@ -66,11 +66,26 @@ class parse:
         #skills_edu.extend([ent_.text for ent_ in nlp(NerTrainSet(self.file_path).resume2str()).ents])
         #skills_edu = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
         tokens = [token.text.lower().encode("ascii", "ignore").decode() for token in doc_skills_ if not token.is_stop]
-        with open('data/exclusions_skills.pkl', "rb") as fp:
+        with open('data/skills.pkl', "rb") as fp:
             skill_master_list = pickle.load(fp)
         skills = [skill.lower().strip().encode("ascii", "ignore").decode() for skill in skill_master_list]
         skillset = []
         skillset.extend([token.capitalize().encode("ascii", "ignore").decode() for token in tokens if token.lower().strip() in skills])
+        resume_skills = [skill for skill in skills if skill in self.resume]
+        for skill in resume_skills:
+            for line in self.resume.split('\n'):
+                for w in re.finditer(skill, line.lower()):
+                    if w.start():
+                        start_condition = line[w.start() - 1] in [',', ' ', ':', '.']
+                    else:
+                        start_condition = True
+                    if len(line) != w.end():
+                        end_condition = line[w.end()] in [',', ' ', ':', '.']
+                    else:
+                        end_condition = True
+                    if start_condition and end_condition:
+                        skillset.append(skill)
+        
         #skillset.extend(
         #    [token.text.capitalize().strip().encode("ascii", "ignore").decode() for token in doc_skills_.noun_chunks if token.text.lower().strip() in skills])
         skills_edu.extend(skillset)
