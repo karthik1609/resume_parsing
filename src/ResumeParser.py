@@ -16,7 +16,7 @@ class parse:
         self.file_path = file_path
         self.resume = textract.process(self.file_path).decode()
         self.nlp_name_loc = spacy.load('en_core_web_trf')
-        self.nlp_skills = spacy.load('output/model-best')
+        self.nlp_skills = spacy.load('en_core_web_trf')
         self.nlp_edu = spacy.load('en_core_web_sm')
         #self.doc_nmlc = self.nlp_name_loc(self.resume)
         #self.doc_skills = self.nlp_skills(self.resume)
