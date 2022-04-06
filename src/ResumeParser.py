@@ -61,8 +61,8 @@ class parse:
         else:
             doc_skills_ = self.nlp_skills(self.resume)
         skills_edu = [ent.text.encode("ascii", "ignore").decode() for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
-        nlp = spacy.load('trf_model/model-best')
-        skills_edu.extend([ent_.text for ent_ in nlp(NerTrainSet(self.file_path).resume2str()).ents])
+        #nlp = spacy.load('trf_model/model-best')
+        #skills_edu.extend([ent_.text for ent_ in nlp(NerTrainSet(self.file_path).resume2str()).ents])
         #skills_edu = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
         tokens = [token.text.lower().encode("ascii", "ignore").decode() for token in doc_skills_ if not token.is_stop]
         with open('data/exclusions_skills.pkl', "rb") as fp:
@@ -118,11 +118,3 @@ class edit_data:
         else:
             return 'Please send string or comma separated sequence of strings'
         
-            
-            
-            
-        
-    
-    
-    
-    
