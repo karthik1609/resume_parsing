@@ -18,7 +18,9 @@ class NerTrainSet:
 
 
     def __init__(self, resume_path):
-        self.skill_corpus = [skill.lower() for skill in list(pd.read_csv('data/skills.csv').columns)]
+        with open('data/skills.pkl', "rb") as fp:
+            self.skill_corpus = pickle.load(fp)
+        self.skill_corpus = [skill.lower() for skill in self.skill_corpus]
         self.tokenizer = Tokenizer(tok=SpacyTokenizer('en'))
         self.skill_corpus = [' '.join([token for token in self.tokenizer(skill) if token not in ['xxbos', 'xxmaj']]) for skill in self.skill_corpus]
         self.skill_corpus = [skill.encode("ascii", "ignore").decode().replace(
