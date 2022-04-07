@@ -13,8 +13,10 @@ stanza.download('en')
 class parse:
     
     def __init__(self, file_path):
+        resume_skill_fetch = NerTrainSet(file_path)
         self.file_path = file_path
-        self.resume = textract.process(self.file_path).decode()
+        self.resume = resume_skill_fetch.resume
+        #self.resume = textract.process(self.file_path).decode()
         self.nlp_name_loc = spacy.load('en_core_web_trf')
         self.nlp_skills = spacy.load('en_core_web_trf')
         self.nlp_edu = spacy.load('en_core_web_sm')
@@ -22,6 +24,7 @@ class parse:
         #self.doc_skills = self.nlp_skills(self.resume)
         #self.doc_edu = self.nlp_edu(self.resume)
         self.nlp_stanza = spacy_stanza.load_pipeline('en',use_gpu=False)
+        self.skill_corpus = resume_skill_fetch.skill_corpus
     
     def extract_phone_number(self):
         items = re.finditer(r'\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}', self.resume)
@@ -66,9 +69,7 @@ class parse:
         #skills_edu.extend([ent_.text for ent_ in nlp(NerTrainSet(self.file_path).resume2str()).ents])
         #skills_edu = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_skills_.ents if ent.label_ in ['PRODUCT', 'ORG']]
         tokens = [token.text.lower().encode("ascii", "ignore").decode() for token in doc_skills_ if not token.is_stop]
-        with open('data/skills.pkl', "rb") as fp:
-            skill_master_list = pickle.load(fp)
-        skills = [skill.lower().strip().encode("ascii", "ignore").decode() for skill in skill_master_list]
+        skills = [skill.lower().strip().encode("ascii", "ignore").decode() for skill in self.skill_corpus]
         skillset = []
         skillset.extend([token.capitalize().encode("ascii", "ignore").decode() for token in tokens if token.lower().strip() in skills])
         resume_skills = [skill for skill in skills if skill in self.resume]
