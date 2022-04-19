@@ -28,15 +28,26 @@ class parse:
     
     def extract_phone_number(self):
         items = re.finditer(r'\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}', self.resume)
-        return [(self.resume[item.span()[0]:item.span()[1]], item.span()) for item in items]    
-    
+        return_ = [(self.resume[item.span()[0]:item.span()[1]], item.span()) for item in items]    
+        if return_:
+            return return_[0]
+        else:
+            return None
     def extract_email(self):
         items = re.finditer(r'[\w\.-]+@[\w\.-]+', self.resume)
-        return [(self.resume[item.span()[0]:item.span()[1]], item.span()) for item in items]
+        return_ = [(self.resume[item.span()[0]:item.span()[1]], item.span()) for item in items]
+        if return_:
+            return return_[0]
+        else:
+            return None
     
     def extract_dob(self):
         items = re.finditer(r"[\d]{1,2}-[\d]{1,2}-[\d]{4}", self.resume)
-        return [(self.resume[item.span()[0]:item.span()[1]], item.span()) for item in items]
+        return_ = [(self.resume[item.span()[0]:item.span()[1]], item.span()) for item in items]
+        if return_:
+            return return_[0]
+        else:
+            return None
     
     def extract_name(self, *args):
         if len(args) and args[0] in ['en_core_web_trf', 'en_core_web_md', 'en_core_web_sm', 'en_core_web_lg']:
@@ -45,8 +56,12 @@ class parse:
             doc_nmlc_ = spacy_stanza.load_pipeline("en",use_gpu=False)(self.resume)
         else:
             doc_nmlc_ = self.nlp_name_loc(self.resume)
-        return [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ == 'PERSON']
-    
+        return_ = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ == 'PERSON']
+        if return_:
+            return return_[0]
+        else:
+            return None
+
     def extract_location(self, *args):
         if len(args) and args[0] in ['en_core_web_trf', 'en_core_web_md', 'en_core_web_sm', 'en_core_web_lg']:
             doc_nmlc_ = spacy.load(args[0])(self.resume)
@@ -54,8 +69,12 @@ class parse:
             doc_nmlc_ = spacy_stanza.load_pipeline("en",use_gpu=False)(self.resume)
         else:
             doc_nmlc_ = self.nlp_name_loc(self.resume)
-        return [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ in ['GPE', 'LOC']]
-    
+        return_ = [(ent.text, (ent.start_char, ent.end_char)) for ent in doc_nmlc_.ents if ent.label_ in ['GPE', 'LOC']]
+        if return_:
+            return return_[0]
+        else:
+            return None
+
     def extract_skills_and_edu(self, *args):
         if len(args) and args[0] in ['en_core_web_trf', 'en_core_web_md', 'en_core_web_sm', 'en_core_web_lg']:
             doc_skills_ = spacy.load(args[0])(self.resume)
